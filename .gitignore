@@ -1,0 +1,9 @@
+# Git ignore file by AKA
+
+.idea/
+**/.idea/
+.iml
+
+target/
+**/target/
+
