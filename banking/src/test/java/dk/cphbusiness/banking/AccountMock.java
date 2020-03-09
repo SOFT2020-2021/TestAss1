@@ -1,6 +1,6 @@
 package dk.cphbusiness.banking;
 
-public class AccountMock {
+public class  AccountMock {
     private Bank bank;
     private Customer customer;
     private String number;

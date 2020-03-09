@@ -1,10 +1,14 @@
 package dk.cphbusiness.banking;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Account {
     private Bank bank;
     private Customer customer;
     private String number;
     private long balance = 0;
+    private List<Movement> transactions = new ArrayList();
 
     public Account(Bank bank, Customer customer, String number) {
         this.bank = bank;
@@ -28,17 +32,35 @@ public class Account {
         return balance;
     }
 
-    public void setBalance(long insertionAmount){
+    public void setBalance(long insertionAmount) {
         balance += insertionAmount;
     }
 
+    private long getUnixTimestamp(){
+        return System.currentTimeMillis() / 1000L;
+    }
     public void transfer(long amount, Account target) {
         balance -= amount;
         target.balance += amount;
+        target.addTransaction(this, amount, getUnixTimestamp());
+        amount *= -1;
+        addTransaction(target, amount, getUnixTimestamp());
+
+    }
+
+    public List<Movement> getTransactions(){
+        return transactions;
+    }
+
+    public void addTransaction(Account acc, long amount, long datetime){
+        transactions.add(new Movement(acc, amount, datetime));
     }
 
     public void transfer(long amount, String targetNumber) {
         Account target = bank.getAccount(targetNumber);
         transfer(amount, target);
+        bank.getAccount(targetNumber).addTransaction(this, amount, getUnixTimestamp());
+        amount *= -1;
+        addTransaction(target, amount, getUnixTimestamp());
     }
 }

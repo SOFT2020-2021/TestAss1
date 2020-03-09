@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 public class BankTool {
   public void readFromFile(Bank bank, String filename) throws IOException {
-    List<String> lines = Files.readAllLines(Path.of(filename));
+    /*List<String> lines = Files.readAllLines(Path.of(filename));
     for (String line : lines) {
       if (line.startsWith("A:")) {
         String[] parts = line.split(":");
@@ -46,7 +46,7 @@ public class BankTool {
       else throw new RuntimeException();
       }
 
-
+    */
     }
 
   }
