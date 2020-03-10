@@ -11,7 +11,6 @@ public class RealBankTest {
 
     private RealBank rb;
     private Account acc;
-    private Customer cust;
 
     @Before
     public void Setup(){
@@ -43,5 +42,15 @@ public class RealBankTest {
     @Test
     public void getCustomer() {
         acc = new Account(new BankDummy(), new CustomerMock("1234"), "test2");
+        rb.registerAccount(acc);
+        Assert.assertEquals(rb.getCustomer("1234"), acc.getCustomer());
+    }
+
+    @Test
+    public void registerCustomerTest() {
+        Customer customer = new CustomerMock("4321");
+        acc = new Account(new BankDummy(), new CustomerMock("4321"), "test2");
+        rb.registerCustomer(customer);
+        Assert.assertEquals(rb.getCustomer("4321"), acc);
     }
 }
