@@ -34,12 +34,13 @@ public class RealBank implements Bank {
 
     @Override
     public void registerCustomer(Customer customer) {
-        bankAccounts.put(customer.getCprNumber(), null);
+        Account acc = new Account(this, customer, customer.getCprNumber());
+        bankAccounts.put(customer.getCprNumber(), acc);
     }
 
     @Override
     public String getName() {
-     return this.name;
+        return this.name;
     }
 
 }

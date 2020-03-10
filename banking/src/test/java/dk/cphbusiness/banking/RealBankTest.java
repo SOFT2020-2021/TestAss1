@@ -19,12 +19,11 @@ public class RealBankTest {
         acc = new Account(new BankDummy(), new CustomerMock("4321"), "test");
         mockCollection.put(acc.getNumber(), acc);
         // Act
-        rb = new RealBank("", "", mockCollection);
+        rb = new RealBank("", "testbank", mockCollection);
     }
 
     @Test
     public void testGetAccount() {
-        // Assert
         Assert.assertEquals(rb.getAccount("test"), acc);
     }
 
@@ -48,9 +47,13 @@ public class RealBankTest {
 
     @Test
     public void registerCustomerTest() {
-        Customer customer = new CustomerMock("4321");
-        acc = new Account(new BankDummy(), new CustomerMock("4321"), "test2");
+        Customer customer = new CustomerMock("6789");
         rb.registerCustomer(customer);
-        Assert.assertEquals(rb.getCustomer("4321"), acc);
+        Assert.assertEquals(rb.getCustomer("6789"), customer);
+    }
+
+    @Test
+    public void getNameTest() {
+        Assert.assertEquals(rb.getName(), "testbank");
     }
 }
