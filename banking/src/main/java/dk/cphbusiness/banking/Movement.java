@@ -2,7 +2,6 @@ package dk.cphbusiness.banking;
 
 public class Movement {
     Account target;
-    Account source;
     long amount;
     long timestamp;
 
