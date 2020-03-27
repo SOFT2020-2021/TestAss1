@@ -2,7 +2,7 @@
 
 Dette er en videreudvikling på bank projektet fra assignment 1.
 
-Dette er filerne der har fået størrere ændringer til denne aflevering for at gør det hurtigere at komme igennem hvad det nye er!
+Dette er filerne der har fået størrere ændringer/lavet til denne aflevering!
 
 [Account](https://github.com/SOFT2020-2021/TestAss2/blob/master/banking/src/main/java/dk/cphbusiness/banking/Account.java)
 
