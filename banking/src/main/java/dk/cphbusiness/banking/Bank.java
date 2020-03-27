@@ -10,4 +10,6 @@ public interface Bank {
     void registerCustomer(Customer customer);
 
     String getName();
+
+    String getCvr();
 }

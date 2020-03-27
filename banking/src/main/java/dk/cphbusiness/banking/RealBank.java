@@ -2,7 +2,7 @@ package dk.cphbusiness.banking;
 
 import java.util.Map;
 
-public class RealBank implements Bank {
+public class RealBank extends ModelBase implements Bank {
 
     private String cvr;
     private String name;
@@ -14,6 +14,23 @@ public class RealBank implements Bank {
     public RealBank(String cvr, String name, Map<String, Account> bankAccounts) {
         this.cvr = cvr;
         this.name = name;
+        this.bankAccounts = bankAccounts;
+    }
+
+
+    public void setCvr(String cvr) {
+        this.cvr = cvr;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Map<String, Account> getBankAccounts() {
+        return bankAccounts;
+    }
+
+    public void setBankAccounts(Map<String, Account> bankAccounts) {
         this.bankAccounts = bankAccounts;
     }
 
@@ -41,6 +58,11 @@ public class RealBank implements Bank {
     @Override
     public String getName() {
         return this.name;
+    }
+
+    @Override
+    public String getCvr() {
+        return this.cvr;
     }
 
 }

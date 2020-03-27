@@ -1,6 +1,6 @@
 package dk.cphbusiness.banking;
 
-public class Movement {
+public class Movement extends ModelBase{
     Account target;
     long amount;
     long timestamp;
@@ -19,7 +19,7 @@ public class Movement {
 
     public Movement(Account target, long amount, long timestamp) {
         this.target = target;
-              this.amount = amount;
+        this.amount = amount;
         this.timestamp = timestamp;
 
 

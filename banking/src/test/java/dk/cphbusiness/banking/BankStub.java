@@ -31,4 +31,9 @@ public class BankStub implements Bank {
   public String getName() {
     throw new UnsupportedOperationException();
     }
+
+  @Override
+  public String getCvr() {
+    return null;
   }
+}
